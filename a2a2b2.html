@@ -14,7 +14,13 @@
 			for (i = n; i < n + valCountPerRound + 1; i++) {
 				nTemp = i;
 
-				ans = Math.sqrt((i**2)+(i**2));
+				mid = (i**2)+(i**2);
+				if (mid > Number.MAX_SAFE_INTEGER) {
+					document.getElementById("calcButton").remove();
+					document.body.innerHTML += "<p>Whoops, looks like one of the values in our calculations went over javascript's <code>Number.MAX_SAFE_INTEGER</code> value. We've stopped any further calculations because they would likely return incorrect values.</p>";
+					return;
+				}
+				ans = Math.sqrt(mid);
 				if (Number.isInteger(ans)) {
 					anyAns = true;
 					document.body.innerHTML += "<p>" + i + " solves this equation as a value of \"a\", and provides the value " + ans + " for b.</p>";
