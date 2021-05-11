@@ -1,0 +1,30 @@
+<!doctype html>
+<body>
+	<button onclick="calcNext()" id="calcButton">calculate first x values for "a"</button>
+	<script>
+		valCountPerRound = 1000000001;
+		document.getElementById("calcButton").innerHTML = "calculate first " + valCountPerRound + " values for \"a\"";
+
+		n = 0;
+		function calcNext () {
+			startN = n;
+			nTemp = n;
+			anyAns = false;
+
+			for (i = n; i < n + valCountPerRound; i++) {
+				nTemp = i;
+
+				ans = Math.sqrt((i**2)+(i**2));
+				if (Number.isInteger(ans)) {
+					anyAns = true;
+					document.body.innerHTML += "<p>" + i + " solves this equation as a value of \"a\", and provides the value " + ans + " for b.</p>";
+				}
+			}
+			if (anyAns == false) {
+				document.body.innerHTML += "<p>No answers found for the range of " + startN + " through " + nTemp + "</p>";
+			}
+			n = nTemp;
+			document.getElementById("calcButton").innerHTML = "calculate next " + valCountPerRound + " values for \"a\"";
+		}
+	</script>
+</body>
