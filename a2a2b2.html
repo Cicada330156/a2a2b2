@@ -2,7 +2,7 @@
 <body>
 	<button onclick="calcNext()" id="calcButton">calculate first x values for "a"</button>
 	<script>
-		valCountPerRound = 1000000001;
+		valCountPerRound = 1000000000;
 		document.getElementById("calcButton").innerHTML = "calculate first " + valCountPerRound + " values for \"a\"";
 
 		n = 0;
@@ -11,7 +11,7 @@
 			nTemp = n;
 			anyAns = false;
 
-			for (i = n; i < n + valCountPerRound; i++) {
+			for (i = n; i < n + valCountPerRound + 1; i++) {
 				nTemp = i;
 
 				ans = Math.sqrt((i**2)+(i**2));
